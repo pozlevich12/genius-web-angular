@@ -12,7 +12,6 @@ export class AppComponent implements OnInit{
   private roles: string[] = ['ROLE_USER'] ;
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
   username: string = 'User';
   avatarUrl: string = '';
   closeResult: string | undefined;
@@ -30,7 +29,6 @@ export class AppComponent implements OnInit{
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
       this.username = user.username;
       this.avatarUrl = user.avatarUrl;
     }
