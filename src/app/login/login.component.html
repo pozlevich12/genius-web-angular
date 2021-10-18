@@ -1,0 +1,22 @@
+<div class="main" *ngIf="!isLoginProcess; else loading">
+  <form *ngIf="!isLoggedIn">
+    <div class="form-group">
+      <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">Login failed: {{ errorMessage }}</div>
+    </div>
+    <div class="form-group">
+      <p class="content-divider center mt-3">
+        <span>Приветствуем Вас на <i class="fa fa-star px-2"></i>Genius!<br>Для доступа к ограниченным ресурсам необходимо авторизоваться.</span>
+      </p>
+    </div>
+  </form>
+  <div *ngIf="isLoggedIn">
+    <img id="profile-img" src="{{currentUser.avatarUrl}}" class="profile-img-card rounded-circle me-1"/>
+    <div class="alert alert-success">Приветствуем, {{currentUser.displayName}}<br> {{ currentUser.username }}!
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="spinner-border text-dark" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>

@@ -1,0 +1,36 @@
+.fa-star{
+  color: orange;
+}
+
+.btn{
+  box-shadow: none;
+}
+
+.dropdown-menu{
+  font-size: 14px;
+}
+
+.star-modal{
+  padding-top: 10px;
+}
+
+.modal-dialog{
+  margin: 0;
+}
+
+.modal-body{
+  text-align: center;
+}
+
+.social{
+  width: 300px;
+}
+
+.form-social{
+  padding-bottom: 10px;
+}
+
+.avatar{
+  width: 32px;
+  height: 32px;
+}

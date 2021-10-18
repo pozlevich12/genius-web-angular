@@ -1,0 +1,23 @@
+.fa-star {
+  color: orange;
+}
+
+.spinner-border{
+  position: absolute;
+  left: 50%;
+  top: 45%;
+}
+
+.profile-img-card{
+  width: 128px;
+  heaight: 128px;
+  margin-bottom: 10px;
+}
+
+.main{
+  position: absolute;
+  left: 42.5%;
+  top:40%;
+  width: 250px;
+  text-align: center;
+}

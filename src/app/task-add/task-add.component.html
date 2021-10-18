@@ -1,0 +1,47 @@
+<div class="bd-example">
+  <form>
+    <fieldset >
+      <legend class=legend><strong>Добавить задачу для сайта  <i class="fa fa-star px-2"></i>Genius.</strong></legend>
+      <div class="mb-3">
+        <label for="title" class="form-label">Заголовок задачи</label>
+        <input [(ngModel)]="newTask.title" name="title" type="text" id="title" class="form-control shadow-off title input-height" placeholder="Ввести заголовок...">
+        <small class="form-text text-muted title">Заголовок должен содержать от 3 до 64 символов.</small>
+      </div>
+      <div class="form-group mg-bt">
+          <label for="subjectSelect" class="form-label">Выберите тему задачи</label>
+          <select [(ngModel)]="newTask.subject" name="subject" class="form-select subject shadow-off input-height font-input " id="subjectSelect">
+            <option [value]="subject" *ngFor="let subject of getParams.subjects">{{subject}}</option>
+          </select>
+        <small class="form-text text-muted ">Обязательный выбор.</small>
+      </div>
+      <div class="mb-3 ">
+        <label for="exampleFormControlTextarea1" class="form-label ">Содержание задачи</label>
+        <textarea [(ngModel)]="newTask.body" name="body" class="form-control input-body shadow-off font-input" id="exampleFormControlTextarea1" rows="3" >
+</textarea>
+        <small class="form-text text-muted title">ЧЕКНУТЬ РАЗМЕР</small>
+      </div>
+     <div class="mb-3">
+       <label for="exampleDataList" class="form-label">Выберите тэги или добавьте свои</label>
+       <div class="tags" *ngIf="newTask.tags">
+         <span (click)="deleteTag(tag)"  class="badge badge-warning" *ngFor="let tag of newTask.tags">{{tag}}</span>
+       </div>
+       <input class="form-control font-input shadow-off input-body" list="datalistOptions" id="exampleDataList" placeholder="Выбрать теги..."
+              (keydown.enter)="addTag()" [(ngModel)]="tag" name="tag">
+       <datalist  id="datalistOptions">
+         <option  [value]="tag" *ngFor="let tag of getParams.tags">{{tag}}</option>
+       </datalist>
+       <small class="form-text text-muted">Используйте Enter для разделения и тэги, состоящие более чем из 3 символов. Чтобы удалить тэг, нажмите на него.</small>
+     </div>
+      <div class="mb-3">
+        <label class="form-label">Введите ответы к задаче.</label>
+        <div class="tags" *ngIf="newTask.tags">
+          <span (click)="deleteAnswer(answer)"  class="badge badge-success" *ngFor="let answer of newTask.answers">{{answer}}</span>
+        </div>
+        <input class="form-control shadow-off font-input title input-height" placeholder="Ввести ответ..."
+               (keydown.enter)="addAnswer()" [(ngModel)]="answer" name="answer">
+        <small class="form-text text-muted">Для добавления ответа нажмите Enter. Количество ответов от 1 до 3 размером не менее чем 1 символ. Для удаления ответа нажмите на него.</small>
+      </div>
+      <button (click)="addTask()" type="button" class="btn btn-warning shadow-off mg-bt-2">Опубликовать задачу</button>
+    </fieldset>
+  </form>
+</div>
